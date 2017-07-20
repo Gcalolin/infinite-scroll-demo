@@ -27,11 +27,11 @@ import loading from '../components/loading.vue'
 		mounted(){
 			this.$nextTick(function(){
 				console.log('mounted');
-				this.loadMore();
+				this.loadMore();//页面加载完成时 加载更多数据
 			})
 		},
 		methods:{
-			getRanArr(num=20){
+			getRanArr(num=20){//获取20个随机数字
 				var arr=[]
 				for (var i = num - 1; i >= 0; i--) {
 					arr.push(Math.round(Math.random()*100))
@@ -41,10 +41,15 @@ import loading from '../components/loading.vue'
 			loadMore(){
 				console.log('loadMore...');
 				this.busy = this.loading = true;
-				let _this_ = this;
-				setTimeout(function(){
-					_this_.items = _this_.items.concat(_this_.getRanArr(20));
-					_this_.loading = _this_.busy = false;
+				// 如果不使用箭头函数的话要将this先赋给别的变量，不然指向的对象会改变 保错。使用箭头函数则this指向同一个对象 不会报错
+				// let _this_ = this;
+				// setTimeout(function(){
+				// 	_this_.items = _this_.items.concat(_this_.getRanArr(20));
+				// 	_this_.loading = _this_.busy = false;
+				// },1000)
+				setTimeout(()=>{
+					this.items = this.items.concat(this.getRanArr(20));
+					this.loading=this.busy=false
 				},1000)
 			}
 		}
