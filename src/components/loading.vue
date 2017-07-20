@@ -10,7 +10,7 @@
 
 <script>
 	export default {
-		props:{
+		props:{//父组件传过来的属性
 			loading:{
 				type:Boolean
 			}
