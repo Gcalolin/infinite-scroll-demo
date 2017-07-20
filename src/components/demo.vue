@@ -6,16 +6,18 @@
 		infinite-scroll-immediate-check="fasle">
 			<li v-for="item in items">{{ item }}</li>
 		</ul>
-		<loading :loading="busy"></loading>
+		<loading2 :loading="busy"></loading2>
 	</div>
 </template>
 
 <script>
-import loading from '../components/loading.vue'
+// import loading from '../components/loading.vue'
+	import loading2 from '../components/loading2.vue'
 
 	export default {
 		components:{
-			loading
+			// loading
+			loading2
 		},
 		data(){
 			return {
@@ -50,7 +52,7 @@ import loading from '../components/loading.vue'
 				setTimeout(()=>{
 					this.items = this.items.concat(this.getRanArr(20));
 					this.loading=this.busy=false
-				},1000)
+				},2000)
 			}
 		}
 	}

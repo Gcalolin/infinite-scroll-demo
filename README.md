@@ -32,6 +32,6 @@ Vue.use(infiniteScroll)
 
 参考：
 https://github.com/ElemeFE/vue-infinite-scroll
-
+https://huruji.github.io/loading/demo/loading.html
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
